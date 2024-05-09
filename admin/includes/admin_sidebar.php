@@ -19,7 +19,6 @@
 								
 							</ul>	
 						</li>
-						<li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Product Information</span></span></a>
 							<ul>

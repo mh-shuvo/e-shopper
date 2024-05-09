@@ -22,7 +22,7 @@
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="./asset/front_asset/images/home/map.png" alt="" />
-							<p>365/2 Feni Trunk Rad Feni Sadar Feni</p>
+							<p>Charkalidesh, Farhadnagar, Feni sadar, Feni</p>
 						</div>
 					</div>
 				</div>

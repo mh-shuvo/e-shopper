@@ -1,6 +1,14 @@
 <?php 
 if(isset($_POST['complete_order'])){
-	$objApplication->completeCustomerOrder($_POST);
+    if(array_key_exists('is_agree',$_POST)){
+        if($_POST['payment_type'] != 'cash' && $_POST['transaction_number'] == null){
+            echo "<script>alert('Please enter the transaction number.')</script>";
+        }else{
+            $objApplication->completeCustomerOrder($_POST);
+        }
+    }else{
+        echo "<script>alert('Please click on checkbox if you are agree with our terms and conditions.')</script>";
+    }
 }
 @ $district=$_SESSION['shipping_district'];
 $order_total=$_SESSION['order_total'];
@@ -23,21 +31,21 @@ $total_amount=$order_total;
             <div class="panel with-nav-tabs panel-success">
                 <div class="panel-heading">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#cart" data-toggle="tab" ><span class="fa fa-credit-card" style="font-size: 25px;"></span>  CARD PAYMENT</a></li>
-                            <li><a href="#cash" data-toggle="tab" ><span class="fa fa-money" style="font-size: 25px;"></span>  CASH ON DELIVERY</a></li>
+                            <li><a href="#cart" data-toggle="tab" ><span class="fa fa-credit-card" style="font-size: 25px;"></span>  CARD PAYMENT</a></li>
+                            <li class="active"><a href="#cash" data-toggle="tab" ><span class="fa fa-money" style="font-size: 25px;"></span>  CASH ON DELIVERY</a></li>
                             <li><a href="#mobile" data-toggle="tab" ><span class="fa fa-mobile" style="font-size: 25px;"></span>  MOBILE PAYMENT</a></li>
                             <li><a href="#internet" data-toggle="tab" ><span class="fa fa-money" style="font-size: 25px;"></span>  INTERNET PAYMENT</a></li>
                               </ul>
                 </div>
                 <div class="panel-body">
                     <div class="tab-content">
-                        <div class="tab-pane fade in active" id="cart">
+                        <div class="tab-pane fade" id="cart">
                         	
                         	<center>
                         		<h1 style="color:green">Sorry our facility is not yet operational.</h1>
                         	</center>
                         </div>
-                        <div class="tab-pane fade" id="cash">
+                        <div class="tab-pane fade in active" id="cash">
                         	<div class="col-md-4">
                         		<h4>How to pay</h4>
                         		<br>
@@ -55,12 +63,15 @@ $total_amount=$order_total;
                         		<h2>CASH ON DELIVERY</h2>
                         		<p style="margin-top: 20px; font-size: 14px">Pay with cash when your order is delivered</p>
                         		<h3>Your Payable Amount <span style="color: red;"> TK.<?php echo $total_amount; ?></span></h3>
-                        		<br>
-                        		<p>
-                        			(Some of your ordered products might be unavailable on suppliers end. We apologize for the inconvenience. We hope that you will consider that situation with a positive attitude.)<input type="checkbox" name="">
-									I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a>
-                        		</p>
+
                         		<form method="post" name="cash">
+                                    <br>
+                                    <p>
+                                        (Some of your ordered products might be unavailable on suppliers end. We apologize for the inconvenience. We hope that you will consider that situation with a positive attitude.)
+                                        <br>
+                                        <input type="checkbox" name="is_agree" required value="1">
+                                        I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a>
+                                    </p>
                         			<input type="hidden" name="payment_type" value="cash">
                         			<input type="submit" name="complete_order" class="btn btn-primary btn-lg btn-block" >
                         			</form>
@@ -96,16 +107,18 @@ $total_amount=$order_total;
                         		<h2>MOBILE PAYMENT</h2>	<form method="post" name="mobile">
                         		<select name="payment_type" style="height: 50px; width: 400px;font-size: 20px; background: none; border: 1px solid #d2cdcd; cursor: pointer;">
                         			<option value="bKash">bKash</option>
-                        			<option value="dbbl">DBBL</option>
+                        			<option value="nagad">Nagad</option>
                         		</select>
                         		<br><br>
-                        		<input type="number" name="transaction_number" placeholder="Transaction ID" style="height: 50px; width: 400px;font-size: 20px; background: none; border: 1px solid #d2cdcd;">
+                        		<input type="text" name="transaction_number" placeholder="Transaction ID" style="height: 50px; width: 400px;font-size: 20px; background: none; border: 1px solid #d2cdcd;">
                         		
                         		<h3>Your Payable Amount <span style="color: red;"> TK.<?php echo $total_amount; ?></span></h3>
                         		<br>
                         		<p>
-                        			(Some of your ordered products might be unavailable on suppliers end. We apologize for the inconvenience. We hope that you will consider that situation with a positive attitude.)<input type="checkbox" name="">
-									I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a>
+                        			(Some of your ordered products might be unavailable on suppliers end. We apologize for the inconvenience. We hope that you will consider that situation with a positive attitude.)
+                                    <br>
+                                    <input type="checkbox" name="is_agree" required value="1">
+                                    I agree to the <a>Terms of Use</a> and <a>Privacy Policy</a>
                         		</p>
                         	
                         			

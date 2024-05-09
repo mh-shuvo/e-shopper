@@ -98,6 +98,10 @@ if(isset($_GET['id'])){
             <h1 style="color: green;">General Information</h1>
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <tr>
+                    <th>Total Amount</th>
+                    <td style=""><?php echo $orderDetails['total_order']; ?></td>
+                </tr>
+                <tr>
                     <th>Order Status</th>
                     <td style="color:<?php echo $orderDetails['order_status'] == 'complete' ? "green":"red"?>"><?php echo ucfirst($orderDetails['order_status']); ?></td>
                 </tr>

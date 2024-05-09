@@ -1,7 +1,10 @@
 <?php
+session_start();
+include('../classes/Admin_info.php');
+$objAdmin = new Admin();
+$objAdmin->checkSomeoneIsAlreadyLogin();
+
 if(isset($_POST['login'])){
-	include('../classes/Admin_info.php');
-	$objAdmin = new Admin();
 	$message = $objAdmin->admin_login_check($_POST);
 }
 ?>

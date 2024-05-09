@@ -11,7 +11,7 @@
 					<h2 class="title text-center">Contact <strong>Us</strong></h2>   
 					<hr style="border: 1px solid #FE980F;">
 					<div id="gmap" class="contact-map" height="auto" width="100%" >
-						<h2 align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254.25550148147158!2d91.4187130028865!3d23.032660020100078!2m3!1f0!2f39.45462522920851!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x375369a47241f7ef%3A0xe1c12206d8f619e0!2sFeni+Computer+Institute!5e1!3m2!1sen!2sbd!4v1509357260107" width="1150" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></h2>
+						<h2 align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.66329651989642!2d91.48175873371181!3d22.92765029534241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375341b06176bc0b%3A0x2364c0020f5638e7!2z4Kat4Ka-4KaHIOCmreCmvuCmhyDgprjgp43gpp_gp4vgprA!5e0!3m2!1sen!2sbd!4v1715268296380!5m2!1sen!2sbd" width="1150" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></h2>
 					</div>
 				</div>			 		
 			</div>    	
@@ -45,11 +45,10 @@
 	    			<div class="contact-info">
 	    				<h2 class="title text-center">Contact Info</h2>
 	    				<address>
-	    					<p>E-Shopper Inc.</p>
-							<p>365/2 Feni Trunk Road Feni Sadar</p>
-							<p>Feni Bangladesh</p>
-							<p>Mobile: +88 01917 42 36 80</p>
-							<p>Fax: 1-742-368-0066</p>
+	    					<p>E-Shopper Ltd.</p>
+							<p>Charkalidesh Farhadnagar,</p>
+							<p>Feni sadar, Feni,  Bangladesh</p>
+							<p>Mobile: +88 017 578 115 08</p>
 							<p>Email: info@e-shopper.com</p>
 	    				</address>
 	    				<div class="social-networks">

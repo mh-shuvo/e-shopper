@@ -54,8 +54,8 @@ class Application extends database_connection
 			die("Something went wrong".mysqli_error($this->connect));
 		}
 	}
-	public function getRelatedProductByCategoryId($categoryId){
-		$sql = "SELECT * FROM add_product WHERE publication_status = 1 AND cata_id = '$categoryId' ORDER BY product_id DESC limit 4";
+	public function getRelatedProductByCategoryId($categoryId,$productId){
+		$sql = "SELECT * FROM add_product WHERE publication_status = 1 AND cata_id = '$categoryId' AND product_id != '$productId' ORDER BY product_id DESC limit 4";
 		$queryResult = mysqli_query($this->connect,$sql);
 		if($queryResult){
 			return $queryResult;
@@ -246,7 +246,7 @@ class Application extends database_connection
 		$shipping_id=null;
 		$payment_type=$data['payment_type'];
 		@ $transaction_id=$data['transaction_number'];
-		$total_order=0;
+		$total_order=$_SESSION['order_total'];
 		$_SESSION['payment_type']=$data['payment_type'];
 		if($payment_type !='cash' && $transaction_id == null){
 			die("Please go back and enter the $payment_type transaction number.");
@@ -268,7 +268,7 @@ class Application extends database_connection
 					$sql="INSERT INTO `payment_info`(`order_id`,`payment_type`)VALUES('$order_id','$payment_type')";
 				}
 				else{
-					$sql="INSERT INTO `payment_info`(`order_id`,`payment_type`,`transaction_id`)VALUES('$order_id','$payment_type',$transaction_id)";
+					$sql="INSERT INTO `payment_info`(`order_id`,`payment_type`,`transaction_id`)VALUES('$order_id','$payment_type','$transaction_id')";
 				}
 				if(mysqli_query($this->connect,$sql)){
 					$sessionId=session_id();

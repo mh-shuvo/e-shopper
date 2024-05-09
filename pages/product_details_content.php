@@ -3,7 +3,7 @@ $productId=$_GET['id'];
 $product = $objApplication->getProductInfoById($productId);
 $get_publish_catagory=$objApplication->getAllPublishCatagory();
 $get_publish_manufacture=$objApplication->getAllPubblishManufacturer();
-$related_product=$objApplication->getRelatedProductByCategoryId($product['7']);
+$related_product=$objApplication->getRelatedProductByCategoryId($product['7'],$productId);
 if (isset($_POST['add_to_cart'])) {
 	$objApplication->addProductToCart($_POST);
 }
@@ -80,10 +80,10 @@ if(isset($_POST['save_cmnt'])){
 							<div class="product-information"><!--/product-information-->
 								<img src="./asset/front_asset/images/product-details/new.jpg" class="newarrival" alt="" />
 								<h2><?php echo $product['1']; ?></h2>
-								<p>Product ID: 9090<?php echo $product['0'];?></p>
-								<img src="./asset/front_asset/images/product-details/rating.png" alt="" />
+<!--								<p>Product ID: 9090--><?php //echo $product['0'];?><!--</p>-->
 								<span>
-									<span>BDT <?php echo $product['2'];?></span>
+									<span>BDT <?php echo $product['2'];?></span> <br>
+
 									<label>Quantity:</label>
 									<form method="post">
 									<input type="text" value="1" name="quantity" />
@@ -97,7 +97,6 @@ if(isset($_POST['save_cmnt'])){
 								<p><b>Category:</b> <?php echo $product['5'];?></p>
 								<p><b>Condition:</b> New</p>
 								<p><b>Brand:</b> <?php echo $product['4'];?></p>
-								<a href=""><img src="./asset/front_asset/images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->

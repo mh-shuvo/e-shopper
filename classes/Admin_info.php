@@ -32,5 +32,11 @@ class Admin extends database_connection
 		unset($_SESSION['admin_id']);
 		unset($_SESSION['admin_name']);
 		header('Location:../admin/index.php');
-	} 
+	}
+
+    public function checkSomeoneIsAlreadyLogin(){
+        if(array_key_exists('admin_id',$_SESSION)){
+            header('Location:../admin/admin_master.php');
+        }
+    }
 }
