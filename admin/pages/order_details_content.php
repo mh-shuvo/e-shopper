@@ -5,9 +5,8 @@ if(isset($_GET['id'])){
     $shippingInfo = $objSuperAdmin->getShippingInfoByOrderId($orderId);
     $productInfo = $objSuperAdmin->getProductInfoByOrderId($orderId);
     $paymentInfo = $objSuperAdmin->getPaymentInfoByOrderId($orderId);
-
+    $orderDetails = $objSuperAdmin->getSinlgeOrderDetails($orderId);
 }
-
 ?>
 <div class="row-fluid sortable">		
     <div class="box span12">
@@ -44,7 +43,9 @@ if(isset($_GET['id'])){
                     <th>Home District</th>
                     <td><?php echo $customerInfo['district']; ?></td>
                 </tr>
-            </table>            
+            </table>  
+
+            <div style="display:none">
             <h1 style="color: green;">Shipping Information</h1>
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <tr>
@@ -67,7 +68,9 @@ if(isset($_GET['id'])){
                     <th>Home District</th>
                     <td><?php echo $shippingInfo['district']; ?></td>
                 </tr>
-            </table>            
+            </table>   
+            </div>         
+
             <h1 style="color: green;">Product Information</h1>
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <tr>
@@ -92,17 +95,30 @@ if(isset($_GET['id'])){
                 <?php } ?>
                
             </table>
-            <h1 style="color: green;">Payment Information</h1>
+            <h1 style="color: green;">General Information</h1>
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <tr>
+                    <th>Order Status</th>
+                    <td style="color:<?php echo $orderDetails['order_status'] == 'complete' ? "green":"red"?>"><?php echo ucfirst($orderDetails['order_status']); ?></td>
+                </tr>
+                <tr>
                     <th>Payment Type</th>
-                    <td><?php echo $paymentInfo['payment_type']; ?></td>
+                    <td><?php echo ucfirst($paymentInfo['payment_type']); ?></td>
                 </tr>
                 <tr>
                     <th>Payment Status</th>
-                    <td><?php echo $paymentInfo['payment_status']; ?></td>
+                    <td style="color:<?php echo $paymentInfo['payment_status'] == 'complete' ? "green":"red"?>"><?php echo ucfirst($paymentInfo['payment_status']); ?></td>
                 </tr>
-            </table>            
+            </table>
+            <?php 
+                if($orderDetails['order_status'] != 'complete'){
+            ?>     
+            <center>
+                <form method="post">
+                    <input class="btn btn-success" type="submit" name="completeOrder" value="COMPLETE ORDER">
+                </form>       
+            </center>
+            <?php } ?>
         </div>
     </div><!--/span-->
 </div>

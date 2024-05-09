@@ -1,10 +1,10 @@
 <?php
  class database_connection
 {
-	private $host='localhost';
-	private $user='root';
-	private $password='';
-	private $db_name='e_shopper';
+	private $host='192.168.30.16';
+	private $user='pranta';
+	private $password='root';
+	private $db_name='shuvo_e_shopper';
 	protected $connect;
 
 		public function __construct(){

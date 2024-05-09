@@ -318,10 +318,19 @@ public function update_manufacture($data)
 
 
 	public function selectAllOrder(){
-		$sql="SELECT o.order_id,o.total_order,o.order_status,o.order_date,o.customer_id,o.shipping_id, s.full_name,s.phone FROM order_info as o,shipping_info as s  WHERE o.shipping_id=s.shipping_id";
+		$sql="SELECT o.order_id,o.total_order,o.order_status,o.order_date,o.customer_id, c.customer_name as full_name,c.phone FROM order_info as o,customer_info as c  WHERE o.customer_id = c.customer_id ORDER BY o.order_id DESC";
 		$result=mysqli_query($this->connect,$sql);
 		if($sql){
-			return $result;
+			if(mysqli_num_rows($result) > 0){
+
+				$items = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+			}
+			else{
+				return $items = [];
+			}
+
+			return $items;
 		}
 		else{
 			die("Something Went Wrong".mysqli_error($this->connect));
@@ -397,6 +406,17 @@ public function getCustomerInfoByOrderId($orderId){
 
 	}
 
+	public function getSinlgeOrderDetails($id){
+		$sql = " SELECT * FROM  order_info WHERE order_id = $id";
+		$result = mysqli_query($this->connect,$sql);
+		if($result){
+			$data = mysqli_fetch_assoc($result);
+			return $data;
+		}
+		else{
+			die("dont update data to order table".mysqli_error($this->connect));
+		}
+	}
 
 	public function completeOrder($id){
 		$sql=" SELECT o.order_id,o.total_order,c.customer_name,c.phone FROM order_info as o, customer_info as c WHERE o.customer_id =c.customer_id AND o.order_id='$id'";
@@ -414,7 +434,7 @@ public function getCustomerInfoByOrderId($orderId){
 					$result=mysqli_query($this->connect,$sql);
 					if($result){
 						echo "<script>alert('Sucessfully Order Completed')</script>";
-						header('Location:order_report.php');
+						header('Location:invoice.php?id='.$id);
 					}
 						}
 				else{

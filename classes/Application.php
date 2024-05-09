@@ -126,7 +126,16 @@ class Application extends database_connection
 		$query_result=mysqli_query($this->connect,$sql);
 		if($query_result){
 
-			return $query_result;
+			if(mysqli_num_rows($query_result) > 0){
+
+				$items = mysqli_fetch_all($query_result,MYSQLI_ASSOC);
+
+			}
+			else{
+				return $items = [];
+			}
+
+			return $items;
 		}
 		else{
 			die('Something Went Wrong'.mysqli_error($this->connect));
@@ -176,25 +185,41 @@ class Application extends database_connection
 	}
 
 	public function customerLoginToShipping($data){
-		$password = $data['password'];
+		$phone = $data['phone'];
 
-		$sql = "SELECT * FROM customer_info WHERE email='$data[email_address]' AND password = '$password' ";
+		$sql = "SELECT * FROM customer_info WHERE phone='$data[phone]'";
 		$queryResult = mysqli_query($this->connect,$sql);
 		$customer = mysqli_num_rows($queryResult);
 		if($customer>0){
 			$customerInfo = mysqli_fetch_array($queryResult);
 			$_SESSION['customer_id'] = $customerInfo['customer_id'];
-			$_SESSION['customer_name'] = $customerInfo['first_name'].' '.$customerInfo['last_name'];
-			$_SESSION['customer_email'] = $customerInfo['customer_email'];
-			header('Location:shipping.php');
+			$_SESSION['customer_name'] = $customerInfo['customer_name'];
+			$_SESSION['customer_email'] = $customerInfo['email'];
+			if(isset($_SESSION['order_total'])){
+				header('Location:payment.php');
+			}else{
+				header('Location:index.php');
+			}
 		}else{
-			$message = "Please give valid information";
-			return $message;
+			$sql="INSERT INTO `customer_info`(`customer_name`,`phone`,`password`)VALUES('$phone','$phone','$phone')";
+			$result=mysqli_query($this->connect,$sql);
+			if($result){
+				$_SESSION['customer_id'] = $this->connect->insert_id;
+				$_SESSION['customer_name'] = $phone;
+				$_SESSION['customer_email'] = $phone;
+
+				if(isset($_SESSION['order_total'])){
+					header('Location:payment.php');
+				}else{
+					header('Location:index.php');
+				}
+			}
 		}
 
 	}
 
 	public function logoutCustomer(){
+		unset($_SESSION['order_total']);
 		unset($_SESSION['customer_id']);
 		unset($_SESSION['customer_name']);
 		unset($_SESSION['customer_email']);
@@ -218,21 +243,24 @@ class Application extends database_connection
 
 	public function completeCustomerOrder($data){
 		$customer_id=$_SESSION['customer_id'];
-		$shipping_id=$_SESSION['shipping_id'];
+		$shipping_id=null;
 		$payment_type=$data['payment_type'];
 		@ $transaction_id=$data['transaction_number'];
 		$total_order=0;
 		$_SESSION['payment_type']=$data['payment_type'];
-		$shipping_district="SELECT district FROM `shipping_info` WHERE shipping_id='$shipping_id'";
-		$result=mysqli_query($this->connect,$shipping_district);
-		$dis_result=mysqli_fetch_array($result);
-		if(($dis_result=='dhaka')||($dis_result=='Dhaka')||($dis_result=='DHAKA')){
-			$total_order=$_SESSION['order_total']+50;
+		if($payment_type !='cash' && $transaction_id == null){
+			die("Please go back and enter the $payment_type transaction number.");
 		}
-		else{
-			$total_order=$_SESSION['order_total']+150;
-		} 
-			$sql="INSERT INTO `order_info`(`customer_id`,`shipping_id`,`total_order`)VALUE('$customer_id','$shipping_id','$total_order')";
+		// $shipping_district="SELECT district FROM `shipping_info` WHERE shipping_id='$shipping_id'";
+		// $result=mysqli_query($this->connect,$shipping_district);
+		// $dis_result=mysqli_fetch_array($result);
+		// if(($dis_result=='dhaka')||($dis_result=='Dhaka')||($dis_result=='DHAKA')){
+		// 	$total_order=$_SESSION['order_total']+50;
+		// }
+		// else{
+		// 	$total_order=$_SESSION['order_total']+150;
+		// } 
+			$sql="INSERT INTO `order_info`(`customer_id`,`total_order`)VALUE('$customer_id','$total_order')";
 			$order_result=mysqli_query($this->connect,$sql);
 			$order_id=mysqli_insert_id($this->connect);
 			if($order_result){

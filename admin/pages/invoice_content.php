@@ -11,9 +11,9 @@ if(isset($_GET['id'])){
      $sub_total=0;
     
 }
-/*if(isset($_POST['completeOrder'])){
+if(isset($_POST['completeOrder'])){
     $objSuperAdmin->completeOrder($orderId);
-}*/
+}
 
 
 ?>
@@ -214,20 +214,20 @@ if(isset($_GET['id'])){
                 </td>
             </tr>
             <br>
-               <tr class="heading">
+               <tr class="heading" style="display:none">
                 <td>
                    Shipping 
                 </td>
                 
                 <td>
                  <?php
-                 $dis= $shippingInfo['5'];
-                 if(($dis=='dhaka')||($dis=='Dhaka')||($dis=='DHAKA')){
-                    echo "50";
-                 }
-                 else{
-                    echo "150";
-                 }
+                //  $dis= $shippingInfo['5'];
+                //  if(($dis=='dhaka')||($dis=='Dhaka')||($dis=='DHAKA')){
+                //     echo "50";
+                //  }
+                //  else{
+                //     echo "150";
+                //  }
                   ?>
                 </td>
             </tr>

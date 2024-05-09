@@ -4,13 +4,13 @@ if(isset($_POST['complete_order'])){
 }
 @ $district=$_SESSION['shipping_district'];
 $order_total=$_SESSION['order_total'];
-$total_amount=0;
-if($district=='dhaka'||$district=='Dhaka'){
-	$total_amount=$order_total+50;
-}
-else{
-	$total_amount=$order_total+150;
-}
+$total_amount=$order_total;
+// if($district=='dhaka'||$district=='Dhaka'){
+// 	$total_amount=$order_total+50;
+// }
+// else{
+// 	$total_amount=$order_total+150;
+// }
 ?>
 
 
