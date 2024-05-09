@@ -1,545 +1,213 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: May 09, 2024 at 12:33 PM
--- Server version: 11.1.2-MariaDB
--- PHP Version: 7.3.33
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               8.0.30 - MySQL Community Server - GPL
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.1.0.6537
+-- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Database: `shuvo_e_shopper`
---
 
--- --------------------------------------------------------
+-- Dumping database structure for shuvo_e_shopper
+CREATE DATABASE IF NOT EXISTS `shuvo_e_shopper` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `shuvo_e_shopper`;
 
---
--- Table structure for table `add_product`
---
-
-CREATE TABLE `add_product` (
-  `product_id` int(3) NOT NULL,
-  `product_name` varchar(50) DEFAULT NULL,
-  `cata_id` int(11) DEFAULT NULL,
-  `manu_id` int(11) DEFAULT NULL,
-  `stock_quantity` int(11) DEFAULT NULL,
-  `product_sku` int(11) DEFAULT NULL,
+-- Dumping structure for table shuvo_e_shopper.add_product
+CREATE TABLE IF NOT EXISTS `add_product` (
+  `product_id` int NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `cata_id` int DEFAULT NULL,
+  `manu_id` int DEFAULT NULL,
+  `stock_quantity` int DEFAULT NULL,
+  `product_sku` int DEFAULT NULL,
   `product_price` float(11,2) DEFAULT NULL,
-  `product_picture` varchar(255) DEFAULT NULL,
-  `product_short_description` text DEFAULT NULL,
-  `product_long_description` longtext DEFAULT NULL,
-  `publication_status` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `product_picture` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `product_short_description` text COLLATE utf8mb3_unicode_ci,
+  `product_long_description` longtext COLLATE utf8mb3_unicode_ci,
+  `publication_status` int DEFAULT NULL,
+  KEY `product_id` (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Dumping data for table `add_product`
---
-
+-- Dumping data for table shuvo_e_shopper.add_product: ~1 rows (approximately)
 INSERT INTO `add_product` (`product_id`, `product_name`, `cata_id`, `manu_id`, `stock_quantity`, `product_sku`, `product_price`, `product_picture`, `product_short_description`, `product_long_description`, `publication_status`) VALUES
-(2, 'Symphony V47', 9, 12, 50, 10, 4950.00, '../asset/image/product_image/V47.jpg', '<h1 class=\"phonename\" style=\"box-sizing: border-box; font-size: 25pt; margin: 0px 0px 23px; font-family: calibri; line-height: 38px; color: rgb(33, 33, 33); letter-spacing: -1px; padding: 0px; border: 0px; background-color: rgb(245, 245, 245);\">Symphony V47</h1><ul class=\"phonespec\" style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; float: left; padding: 0px; color: rgb(255, 255, 255); font-family: calibri, Arial, sans-serif; font-size: 14px; background-color: rgb(245, 245, 245);\"><li style=\"box-sizing: border-box; color: rgb(33, 33, 33); display: block; font-family: calibri; font-size: 16pt; font-weight: lighter; line-height: 29px; list-style: none outside none;\">1800 mAh Li-ion</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33); display: block; font-family: calibri; font-size: 16pt; font-weight: lighter; line-height: 29px; list-style: none outside none;\">1.3 GHz Quad Core</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33); display: block; font-family: calibri; font-size: 16pt; font-weight: lighter; line-height: 29px; list-style: none outside none;\">8MP+5MP Camera</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33); display: block; font-family: calibri; font-size: 16pt; font-weight: lighter; line-height: 29px; list-style: none outside none;\">4.5â€ FWVGA TN Display</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33); display: block; font-family: calibri; font-size: 16pt; font-weight: lighter; line-height: 29px; list-style: none outside none;\">Android Nougat 7.0</li></ul>', '<sub style=\"font-family: Arial, Verdana;\"><font size=\"6\">Feature:</font></sub><div style=\"\"><ul style=\"font-family: calibri, Arial, sans-serif; font-size: 14px; box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; color: rgb(139, 147, 156); background-color: rgb(245, 245, 245);\"><li style=\"box-sizing: border-box; color: rgb(33, 33, 33);\">4.5â€ FWVGA TN Display</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33);\">1.3 GHz Quad Core&nbsp;&nbsp;</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33);\">Android Nougat 7.0</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33);\">8MP+5MP Camera</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33);\">8GB ROM + 1GB RAM</li><li style=\"box-sizing: border-box; color: rgb(33, 33, 33);\">1800 mAh Li-ion</li></ul><div style=\"\"><font color=\"#212121\" face=\"calibri, Arial, sans-serif\" size=\"6\">Specification:</font></div><div style=\"\"><table id=\"tablepress-1360\" class=\"tablepress tablepress-id-1360\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px 0px 1em; padding: 0px; border: none; outline: 0px; font-size: 12px; font-family: Arial, Tahoma, Verdana, sans-serif; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px; width: 710px; max-width: 100%; color: rgb(86, 100, 111); background-color: rgb(255, 255, 255);\"><tbody class=\"row-hover\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline;\"><tr class=\"row-2 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(243, 243, 243); float: none !important;\">Network Scope</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(243, 243, 243); float: none !important;\">2G, 3G</td></tr><tr class=\"row-3 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Battery Type &amp; Performance</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Lithium-ion 1800 mAh<br style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);\">Stand-by: up to 340 hours<br style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);\">Talk-time: up to 10 hours</td></tr><tr class=\"row-4 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Body &amp; Weight</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">133 x 66.8 x 9.9millimeter, 132.6 grams</td></tr><tr class=\"row-5 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Camera Factors (Back)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Flash light, up to 4x zoom, f/2.0 aperture, face beauty</td></tr><tr class=\"row-6 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Camera Resolution (Back)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">8 Megapixel</td></tr><tr class=\"row-7 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Camera Resolution (Front)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">5 Megapixel (f/2.2)</td></tr><tr class=\"row-8 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Colors Available</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Gold</td></tr><tr class=\"row-9 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Display Size &amp; Resolution</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">4.5 inches, FWVGA 854 x 480 pixels (217 ppi)</td></tr><tr class=\"row-10 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Display Type</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">TN Touchscreen</td></tr><tr class=\"row-11 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Graphic Processing Unit (GPU)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Mali 400</td></tr><tr class=\"row-12 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Memory Card Slot</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">MicroSD, up to 32 GB</td></tr><tr class=\"row-13 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Operating System</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Android Nougat v7.0</td></tr><tr class=\"row-14 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Processor</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Quad-Core, 1.3 GHz</td></tr><tr class=\"row-15 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">RAM</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">1 GB</td></tr><tr class=\"row-16 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">ROM</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">8 GB</td></tr><tr class=\"row-17 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Release Date</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">May 2017</td></tr><tr class=\"row-18 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Sensors</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">G-sensor</td></tr><tr class=\"row-19 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">SIM Card Type</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Dual SIM</td></tr><tr class=\"row-20 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">USB</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">MicroUSB v2.0</td></tr><tr class=\"row-21 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Video Recording</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Yes</td></tr><tr class=\"row-22 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Wireless LAN</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Yes</td></tr><tr class=\"row-23 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Other Features</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">- Bluetooth, GPS, A-GPS, MP3, MP4, Radio, GPRS, Edge, Multitouch, Loudspeaker</td></tr></tbody></table></div></div>', 1),
-(3, 'T-Shirt', 8, 2, 100, 10, 850.00, '../asset/image/product_image/easy_t_shirt.jpg', 'Color:Black;<div>100% cotton</div>', '100% cotton,<div>color: Black;</div><div>Size: xl, x, m, sm</div><div>Price: 850</div>', 1),
-(5, 'Full Shirt', 8, 10, 120, 10, 1250.00, '../asset/image/product_image/0020_00302329_1975.jpg', 'Color: white Blue<div>Size: xl,x, m, sm</div><div><br></div>', '<span style=\"font-size: 13.3333px;\">Color: white Blue</span><div style=\"font-size: 13.3333px;\">Size: xl,x, m, sm</div><div><br></div>', 1);
-INSERT INTO `add_product` (`product_id`, `product_name`, `cata_id`, `manu_id`, `stock_quantity`, `product_sku`, `product_price`, `product_picture`, `product_short_description`, `product_long_description`, `publication_status`) VALUES
-(7, 'Nokia5', 9, 7, 10, 2, 17500.00, '../asset/image/product_image/Nokia-5-bangladesh.jpg', '<span style=\"color: rgb(94, 94, 94); font-family: Titillium, arial, sans-serif; font-size: 16px; background-color: rgb(255, 255, 255);\">The Nokia 5 runs Android 7.1.1 and is powered by a 3000mAh non removable battery. It measures 149.70 x 72.50 x 8.05 (height x width x thickness) .</span>', '<table id=\"tablepress-1370\" class=\"tablepress tablepress-id-1370\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px 0px 1em; padding: 0px; border: none; outline: 0px; font-size: 12px; font-family: Arial, Tahoma, Verdana, sans-serif; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px; width: 710px; max-width: 100%; color: rgb(86, 100, 111); background-color: rgb(255, 255, 255);\"><tbody class=\"row-hover\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline;\"><tr class=\"row-2 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Network Scope</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">2G, 3G, 4G</td></tr><tr class=\"row-3 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Battery Type &amp; Performance</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Lithium-ion 3000 mAh (non-removable)</td></tr><tr class=\"row-4 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Body &amp; Weight</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">149.7 x 72.5 x 8 millimeter, - (Aluminium Unibody)</td></tr><tr class=\"row-5 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Camera Factors (Back)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Dual-LED flash, phase detection autofocus, f/2.0, 1/3\" sensor size, 1.12 Âµm pixel size, auto face recognition, HDR</td></tr><tr class=\"row-6 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Camera Resolution (Back)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">13 Megapixel</td></tr><tr class=\"row-7 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Camera Resolution (Front)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">8 Megapixel (f/2.0, 1.12 Âµm pixel size, wide angle view)</td></tr><tr class=\"row-8 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Chipset</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Qualcomm Snapdragon 430</td></tr><tr class=\"row-9 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Colors Available</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Tempered Blue, Silver, Matte Black, Copper</td></tr><tr class=\"row-10 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Display Size &amp; Resolution</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">5.2 inches, HD 1280 x 720 Pixels (282 ppi)</td></tr><tr class=\"row-11 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Display Type</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">IPS LCD Touchscreen with sculpted Corning Gorilla Glass protection</td></tr><tr class=\"row-12 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Graphics processing unit (GPU)</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Adreno 505</td></tr><tr class=\"row-13 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Memory Card Slot</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">MicroSD, up to 128 GB</td></tr><tr class=\"row-14 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Operating System</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Android Nougat v7.1.1</td></tr><tr class=\"row-15 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Processor</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Octa-core, 1.4 GHz</td></tr><tr class=\"row-16 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">RAM</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">2 GB</td></tr><tr class=\"row-17 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">ROM</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">16 GB</td></tr><tr class=\"row-18 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Release Date</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">May 2017</td></tr><tr class=\"row-19 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Sensors</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Fingerprint, Accelerometer (G-sensor), Ambient light, E-compass, Hall, Gyroscope, Proximity</td></tr><tr class=\"row-20 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">SIM Card Type</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Single SIM (Nano-SIM) or Dual SIM (Nano-SIM, dual stand-by)</td></tr><tr class=\"row-21 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">USB</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">MicroUSB v2.0, USB-on-the-go (OTG)</td></tr><tr class=\"row-22 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Video Recording</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Full HD (1080p)</td></tr><tr class=\"row-23 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Wireless LAN</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(249, 249, 249); float: none !important;\">Yes, Wi-Fi hotspot</td></tr><tr class=\"row-24 even\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">Special Features</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; float: none !important;\">- Fingerprint Sensor</td></tr><tr class=\"row-25 odd\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: rgb(234, 234, 234); border-left-color: initial; border-image: initial; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><td class=\"column-1\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(243, 243, 243); float: none !important;\">Other Features</td><td class=\"column-2\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); margin: 0px; padding: 8px; border-top: 1px solid rgb(221, 221, 221); border-right: none; border-bottom: none; border-left: none; border-image: initial; outline: 0px; vertical-align: top; line-height: inherit; word-wrap: break-word; background: 0px 0px rgb(243, 243, 243); float: none !important;\">- Bluetooth, GPS, A-GPS, MP3, MP4, Radio, GPRS, Edge, Multitouch, Loudspeaker, NFC</td></tr></tbody></table>', 1),
-(8, 'HP Probook 450 G2', 10, 13, 80, 5, 51000.00, '../asset/image/product_image/hp probook.png', '<table style=\"table-layout: fixed; width: 437px; border-collapse: collapse; color: rgb(34, 34, 34); font-family: Roboto, arial, sans-serif; font-size: small; background-color: rgb(255, 255, 255);\"><tbody><tr style=\"border-bottom: 1px solid rgb(235, 235, 235);\"><th colspan=\"2\" style=\"word-wrap: normal; height: 26px; padding: 0px 10px 0px 0px; color: rgb(0, 0, 0); font-weight: bolder; text-align: center;\">HP Probook 450 G2 Core i5 5200U 1TB Graphics Specifications</th></tr><tr style=\"border-bottom: 1px solid rgb(235, 235, 235);\"><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px 0px 0px;\">Processor</td><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px;\">Intel Core i5 5200U 5th Gen</td></tr><tr style=\"border-bottom: 1px solid rgb(235, 235, 235);\"><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px 0px 0px;\">RAM</td><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px;\">4 GB</td></tr><tr style=\"border-bottom: 1px solid rgb(235, 235, 235);\"><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px 0px 0px;\">HDD</td><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px;\">1 TB</td></tr><tr style=\"border-bottom: 1px solid rgb(235, 235, 235);\"><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px 0px 0px;\">Processor-Clock-Rate</td><td style=\"word-wrap: normal; height: 26px; padding: 0px 10px;\">2.2 GHz</td></tr></tbody></table>', '<table class=\"table no-border no-box-shad m-b-lg\" style=\"max-width: 100%; background-color: rgb(255, 255, 255); border-collapse: collapse; border-spacing: 0px; border: none; width: 598px; margin-bottom: 20px; color: rgb(51, 51, 51); font-family: Lato, sans-serif; font-size: 16px; box-shadow: none !important;\"><thead style=\"background: rgb(246, 246, 246);\"><tr><th colspan=\"2\" style=\"padding: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0px;\"><span class=\"ta-wrap\" style=\"word-wrap: break-word !important;\">HP Probook 450 G2 Core i5 5200U 1TB Graphics Specifications</span></th></tr></thead><tbody><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Processor</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">Intel Core i5 5200U 5th Gen&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>RAM</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">4 GB&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>HDD</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">1 TB&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Processor-Clock-Rate</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">2.2 GHz&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Display-Size</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">15.6 Inch&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Display-Type</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">HD Antiglare LED Display&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Graphics-Chipset</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">Amd Radeon R5 M255 2GB Dedicated Graphics&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Webcam</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">HD&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Card-Reader</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">Yes&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Appx-Battery-Time</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">Backup Upto 4.5 hours&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Operating-System</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">Free Dos&nbsp;</td></tr><tr><td class=\"text-small bg-light\" width=\"25%\" style=\"background: rgb(242, 244, 248); padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important;\"><em>Weight</em></td><td class=\"text-small ta-wrap\" width=\"74%\" style=\"padding: 8px; line-height: 20px; vertical-align: middle; border-top: 1px solid rgb(221, 221, 221); font-size: 12px !important; word-wrap: break-word !important;\">2.10 kg&nbsp;</td></tr></tbody></table>', 1);
+	(1, 'Chiffon Cake - Star Line Food Products', 1, 3, 100, 1, 5.00, '../asset/image/product_image/starline-chiffon-cake.jpg', '.', '.', 1);
 
--- --------------------------------------------------------
+-- Dumping structure for table shuvo_e_shopper.admin_info
+CREATE TABLE IF NOT EXISTS `admin_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `admin_name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `password` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Table structure for table `admin_info`
---
-
-CREATE TABLE `admin_info` (
-  `id` int(3) NOT NULL,
-  `admin_name` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Dumping data for table `admin_info`
---
-
+-- Dumping data for table shuvo_e_shopper.admin_info: ~1 rows (approximately)
 INSERT INTO `admin_info` (`id`, `admin_name`, `email`, `password`) VALUES
-(1, 'admin', 'admin@gmail.com', '123456');
+	(1, 'admin', 'admin@gmail.com', '123456');
 
--- --------------------------------------------------------
+-- Dumping structure for table shuvo_e_shopper.category_info
+CREATE TABLE IF NOT EXISTS `category_info` (
+  `cata_id` int NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `category_description` text COLLATE utf8mb3_unicode_ci,
+  `publication_status` int DEFAULT NULL,
+  KEY `cata_id` (`cata_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Table structure for table `category_info`
---
-
-CREATE TABLE `category_info` (
-  `cata_id` int(3) NOT NULL,
-  `category_name` varchar(50) DEFAULT NULL,
-  `category_description` text DEFAULT NULL,
-  `publication_status` int(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Dumping data for table `category_info`
---
-
+-- Dumping data for table shuvo_e_shopper.category_info: ~0 rows (approximately)
 INSERT INTO `category_info` (`cata_id`, `category_name`, `category_description`, `publication_status`) VALUES
-(4, 'Pant', 'Good Pant<br>', 1),
-(8, 'Shirt', 'Good Shirt<span style=\"white-space:pre\">		</span>', 1),
-(9, 'Mobile', 'Best Mobile', 1),
-(10, 'Laptop', 'Electronics Device<span style=\"white-space:pre\">	</span>', 1),
-(11, 'Mouse', 'Computer Device', 1);
+	(1, 'Dry Food', 'N/A', 1),
+	(2, 'Cool Drinks', '.', 1),
+	(3, 'Stationary', '.', 1),
+	(4, 'Grocery', '.', 1);
 
--- --------------------------------------------------------
+-- Dumping structure for table shuvo_e_shopper.customer_info
+CREATE TABLE IF NOT EXISTS `customer_info` (
+  `customer_id` int NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `password` varchar(15) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb3_unicode_ci,
+  `district` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`customer_id`) USING BTREE,
+  UNIQUE KEY `phone` (`phone`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Table structure for table `customer_info`
---
-
-CREATE TABLE `customer_info` (
-  `customer_id` int(11) NOT NULL,
-  `customer_name` varchar(100) DEFAULT NULL,
-  `phone` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `password` varchar(15) NOT NULL,
-  `address` text DEFAULT NULL,
-  `district` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Dumping data for table `customer_info`
---
-
+-- Dumping data for table shuvo_e_shopper.customer_info: ~0 rows (approximately)
 INSERT INTO `customer_info` (`customer_id`, `customer_name`, `phone`, `email`, `password`, `address`, `district`) VALUES
-(3, 'shuvo', 'shuvo', 'shuvo@gmail.com', '12345', 'Mirpur Dhaka Bangladesh', 'dhaka'),
-(4, 'Mehedi Hasan Hriday', '01615237395', 'hridaybd5@gmail.com', '123456', 'Mirpur-1 dhaka bangladesh', 'Dhaka'),
-(5, 'Shahinul Alom', '01635874007', 'shahinfnbd7788@gmail.com', '123456', 'zoydebpur, Gazipur, Dhaka Bangladesh', 'Dhaka'),
-(6, 'hriday', '01876545454', 'hriday5@yahoo.com', '123456', 'gulshan', 'Dhaka'),
-(8, '01738923828', '01738923828', NULL, '01738923828', NULL, NULL);
+	(1, '01738923828', '01738923828', NULL, '01738923828', NULL, NULL);
 
--- --------------------------------------------------------
+-- Dumping structure for table shuvo_e_shopper.manufacture_info
+CREATE TABLE IF NOT EXISTS `manufacture_info` (
+  `manu_id` int NOT NULL AUTO_INCREMENT,
+  `manufacture_name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `manufacture_description` text COLLATE utf8mb3_unicode_ci,
+  `publication_status` int DEFAULT NULL,
+  KEY `manu_id` (`manu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Table structure for table `manufacture_info`
---
-
-CREATE TABLE `manufacture_info` (
-  `manu_id` int(3) NOT NULL,
-  `manufacture_name` varchar(50) DEFAULT NULL,
-  `manufacture_description` text DEFAULT NULL,
-  `publication_status` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Dumping data for table `manufacture_info`
---
-
+-- Dumping data for table shuvo_e_shopper.manufacture_info: ~0 rows (approximately)
 INSERT INTO `manufacture_info` (`manu_id`, `manufacture_name`, `manufacture_description`, `publication_status`) VALUES
-(2, 'Easy', 'good', 1),
-(3, 'Colors', 'best', 0),
-(7, 'Nokia', '<font color=\"#5e5e5e\" face=\"Titillium, arial, sans-serif\" style=\"font-family: Arial, Verdana;\"><span style=\"background-color: rgb(255, 255, 255);\">Nokia is the most popular Manufacturer Company in the World.&nbsp;</span></font><span style=\"color: rgb(94, 94, 94); font-family: Titillium, arial, sans-serif; font-size: 13.3333px;\">Nokia devices and services division was sold Microsoft. in 2016</span><font color=\"#5e5e5e\" face=\"Titillium, arial, sans-serif\" style=\"font-family: Arial, Verdana;\"><span style=\"background-color: rgb(255, 255, 255);\">finish company HMD gloabal bought a part of Microsoft. its feature phone business and has licensing agreement that allows it to make sm</span></font>', 1),
-(8, 'SYMPHONY', 'Mobile Company<span style=\"white-space:pre\">	</span>', 0),
-(9, 'SAMSUNG', 'Laptop, Mobile, All of other&nbsp; Electronics device', 1),
-(10, 'Top Ten', 'Cloths Brand<span style=\"white-space:pre\">	</span>', 0),
-(11, 'POLO', 'Cloths Gets', 0),
-(12, 'SYMPHONY', 'Mobile and mobile accesories', 1),
-(13, 'HP', '<span class=\"_Tgc _y9e\" style=\"font-size: 16px; color: rgb(34, 34, 34); font-family: arial, sans-serif; background-color: rgb(255, 255, 255);\">\"HP PCs have been assembled in the&nbsp;<b>U.S.</b>&nbsp;since the beginning,\" the post begins. \"HP workstations and commercial desktop PCs are manufactured in Indianapolis, and HP servers are manufactured in Houston.</span><span class=\"_D8e\" style=\"color: rgb(119, 119, 119); font-size: 14px; margin-left: 8px; white-space: nowrap; font-family: arial, sans-serif; background-color: rgb(255, 255, 255);\">Dec 8, 2012</span>', 1),
-(14, 'Arong', '<span style=\"color: rgb(46, 46, 46); font-size: small; background-color: rgb(255, 255, 255);\">arong is the top lifestyle retailer in Bangladesh operating under BRAC, a non-profit NGO. A socially responsible organization. Working as a platform where independent co-operative groups and family based artisans market their craft.</span>', 1),
-(15, 'Richman', '<span style=\"color: rgb(46, 46, 46); font-size: small; background-color: rgb(255, 255, 255);\">Richman is one of the top leading fashion house in Bangladesh. It is popular for menâ€™s wear. Lubnan Trade Consortium Ltd is the mother company of Richman.&nbsp;</span>', 0),
-(16, 'Richman', '<span style=\"color: rgb(46, 46, 46); font-size: small; background-color: rgb(255, 255, 255);\">Richman is one of the top leading fashion house in Bangladesh. It is popular for menâ€™s wear. Lubnan Trade Consortium Ltd is the mother company of Richman.&nbsp;</span>', 0),
-(17, 'Dorjibari', '<span style=\"color: rgb(46, 46, 46); font-size: small; background-color: rgb(255, 255, 255);\">Dorjibari is a renowned fashion house in Bangladesh. It has become one of the leading manufacturers &amp; exporters high fashion apparel &amp; accessories for Men, Women &amp; Kids.&nbsp;</span>', 1);
+	(1, 'Default', '.', 1),
+	(2, 'Pran', '.', 1),
+	(3, 'Star Line', '.', 1);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `order_details`
---
-
-CREATE TABLE `order_details` (
-  `order_details_id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `product_name` varchar(100) DEFAULT NULL,
+-- Dumping structure for table shuvo_e_shopper.order_details
+CREATE TABLE IF NOT EXISTS `order_details` (
+  `order_details_id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  `product_name` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `product_price` float(11,2) DEFAULT NULL,
-  `product_quantity` int(11) DEFAULT NULL,
-  `product_image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `product_quantity` int DEFAULT NULL,
+  `product_image` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`order_details_id`),
+  KEY `order_details_id` (`order_details_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Dumping data for table `order_details`
---
-
+-- Dumping data for table shuvo_e_shopper.order_details: ~0 rows (approximately)
 INSERT INTO `order_details` (`order_details_id`, `order_id`, `product_id`, `product_name`, `product_price`, `product_quantity`, `product_image`) VALUES
-(15, 23, NULL, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(16, 23, NULL, 'HP Probook 450 G2', 51000.00, 1, '../asset/image/product_image/hp probook.png'),
-(17, 23, NULL, 'Nokia5', 17500.00, 1, '../asset/image/product_image/Nokia-5-bangladesh.jpg'),
-(18, 24, NULL, 'HP Probook 450 G2', 51000.00, 1, '../asset/image/product_image/hp probook.png'),
-(19, 25, NULL, 'Full Shirt', 1250.00, 1, '../asset/image/product_image/0020_00302329_1975.jpg'),
-(20, 25, NULL, 'T-Shirt', 850.00, 1, '../asset/image/product_image/easy_t_shirt.jpg'),
-(21, 27, NULL, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(22, 28, NULL, 'Nokia5', 17500.00, 1, '../asset/image/product_image/Nokia-5-bangladesh.jpg'),
-(23, 28, NULL, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(24, 28, NULL, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(25, 30, NULL, 'Full Shirt', 1250.00, 1, '../asset/image/product_image/0020_00302329_1975.jpg'),
-(26, 31, NULL, 'Nokia5', 17500.00, 1, '../asset/image/product_image/Nokia-5-bangladesh.jpg'),
-(27, 32, NULL, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(28, 33, NULL, 'T-Shirt', 850.00, 1, '../asset/image/product_image/easy_t_shirt.jpg'),
-(29, 34, NULL, 'T-Shirt', 850.00, 1, '../asset/image/product_image/easy_t_shirt.jpg'),
-(30, 35, NULL, 'Nokia5', 17500.00, 1, '../asset/image/product_image/Nokia-5-bangladesh.jpg'),
-(31, 37, 8, 'HP Probook 450 G2', 51000.00, 1, '../asset/image/product_image/hp probook.png'),
-(32, 39, 2, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(33, 40, 5, 'Full Shirt', 1250.00, 1, '../asset/image/product_image/0020_00302329_1975.jpg'),
-(36, 40, 3, 'T-Shirt', 850.00, 2, '../asset/image/product_image/easy_t_shirt.jpg'),
-(37, 41, 5, 'Full Shirt', 1250.00, 1, '../asset/image/product_image/0020_00302329_1975.jpg'),
-(38, 41, 2, 'Symphony V47', 4950.00, 1, '../asset/image/product_image/V47.jpg'),
-(39, 41, 8, 'HP Probook 450 G2', 51000.00, 1, '../asset/image/product_image/hp probook.png');
+	(1, 1, 1, 'Chiffon Cake - Star Line Food Products', 5.00, 5, '../asset/image/product_image/starline-chiffon-cake.jpg'),
+	(2, 3, 1, 'Chiffon Cake - Star Line Food Products', 5.00, 1, '../asset/image/product_image/starline-chiffon-cake.jpg'),
+	(3, 4, 1, 'Chiffon Cake - Star Line Food Products', 5.00, 5, '../asset/image/product_image/starline-chiffon-cake.jpg');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `order_info`
---
-
-CREATE TABLE `order_info` (
-  `order_id` int(11) NOT NULL,
-  `customer_id` int(11) DEFAULT NULL,
-  `shipping_id` int(11) DEFAULT NULL,
+-- Dumping structure for table shuvo_e_shopper.order_info
+CREATE TABLE IF NOT EXISTS `order_info` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int DEFAULT NULL,
+  `shipping_id` int DEFAULT NULL,
   `total_order` float(11,2) DEFAULT NULL,
   `order_status` varbinary(50) DEFAULT 'Pending',
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`order_id`),
+  KEY `order_id` (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Dumping data for table `order_info`
---
-
+-- Dumping data for table shuvo_e_shopper.order_info: ~2 rows (approximately)
 INSERT INTO `order_info` (`order_id`, `customer_id`, `shipping_id`, `total_order`, `order_status`, `order_date`) VALUES
-(23, 3, 21, 74919.00, 0x636f6d706c657465, '2017-11-01 16:53:31'),
-(24, 4, 22, 52020.00, 0x636f6d706c657465, '2017-11-01 18:40:55'),
-(25, 5, 23, 2142.00, 0x636f6d706c657465, '2017-11-01 19:21:56'),
-(27, 6, 24, 5049.00, 0x636f6d706c657465, '2017-11-01 19:21:47'),
-(35, 3, 29, 18000.00, 0x636f6d706c657465, '2017-11-19 18:07:39'),
-(36, 3, 29, 18000.00, 0x636f6d706c657465, '2017-11-19 19:04:11'),
-(40, 8, 1, 0.00, 0x50656e64696e67, '2024-05-09 11:50:55'),
-(41, 8, NULL, 0.00, 0x50656e64696e67, '2024-05-09 12:29:27');
+	(3, 1, NULL, 5.00, _binary 0x50656e64696e67, '2024-05-09 15:58:19'),
+	(4, 1, NULL, 25.00, _binary 0x50656e64696e67, '2024-05-09 16:07:54');
 
--- --------------------------------------------------------
+-- Dumping structure for table shuvo_e_shopper.payment_info
+CREATE TABLE IF NOT EXISTS `payment_info` (
+  `payment_id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int DEFAULT NULL,
+  `payment_type` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `transaction_id` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `payment_status` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT 'Pending',
+  `payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  KEY `payment_id` (`payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Table structure for table `payment_info`
---
-
-CREATE TABLE `payment_info` (
-  `payment_id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `payment_type` varchar(100) DEFAULT NULL,
-  `transaction_id` varchar(50) DEFAULT NULL,
-  `payment_status` varchar(50) DEFAULT 'Pending',
-  `payment_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Dumping data for table `payment_info`
---
-
+-- Dumping data for table shuvo_e_shopper.payment_info: ~0 rows (approximately)
 INSERT INTO `payment_info` (`payment_id`, `order_id`, `payment_type`, `transaction_id`, `payment_status`, `payment_date`) VALUES
-(16, 21, 'cash_on_delivery', NULL, 'Pending', '2017-11-01 15:01:54'),
-(17, 22, 'cash_on_delivery', NULL, 'Pending', '2017-11-01 15:03:07'),
-(18, 23, 'cash_on_delivery', NULL, 'Pending', '2017-11-01 15:45:53'),
-(19, 24, 'bKash', NULL, 'Pending', '2017-11-01 17:01:18'),
-(20, 25, 'paypal', NULL, 'Pending', '2017-11-01 19:11:12'),
-(21, 26, 'paypal', NULL, 'Pending', '2017-11-01 19:11:48'),
-(22, 27, 'bKash', NULL, 'Pending', '2017-11-01 19:20:49'),
-(23, 28, 'cash', NULL, 'Pending', '2017-11-19 03:54:25'),
-(28, 33, 'cash', NULL, 'Pending', '2017-11-19 05:54:58'),
-(29, 34, 'bKash', '1917423679', 'Pending', '2017-11-19 06:04:59'),
-(30, 35, 'dbbl', '1917423680', 'Pending', '2017-11-19 18:06:54'),
-(31, 36, 'cash', NULL, 'complete', '2017-11-19 19:04:11'),
-(32, 37, 'cash', NULL, 'Pending', '2017-11-19 19:12:23'),
-(33, 39, 'bKash', '23423342', 'Pending', '2017-11-19 19:27:20'),
-(34, 40, 'dbbl', '5423523434', 'Pending', '2017-11-19 19:29:08'),
-(36, 40, 'dbbl', '13123123', 'Pending', '2024-05-09 11:50:55'),
-(37, 41, 'cash', NULL, 'Pending', '2024-05-09 12:29:27');
+	(1, 1, 'cash', NULL, 'Pending', '2024-05-09 15:49:22'),
+	(2, 3, 'bKash', 'S254B65', 'Pending', '2024-05-09 15:57:10'),
+	(3, 4, 'cash', NULL, 'Pending', '2024-05-09 16:07:54');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `sale_info`
---
-
-CREATE TABLE `sale_info` (
-  `sale_id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `customer_name` varchar(50) DEFAULT NULL,
-  `phone` varchar(50) DEFAULT NULL,
+-- Dumping structure for table shuvo_e_shopper.sale_info
+CREATE TABLE IF NOT EXISTS `sale_info` (
+  `sale_id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int DEFAULT NULL,
+  `customer_name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `total_order` float(11,2) DEFAULT NULL,
-  `sale_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `sale_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  KEY `sale_id` (`sale_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Dumping data for table `sale_info`
---
+-- Dumping data for table shuvo_e_shopper.sale_info: ~0 rows (approximately)
 
-INSERT INTO `sale_info` (`sale_id`, `order_id`, `customer_name`, `phone`, `total_order`, `sale_date`) VALUES
-(8, 23, 'shuvo', 'shuvo', 74919.00, '2017-11-01 16:53:31'),
-(9, 23, 'shuvo', 'shuvo', 74919.00, '2017-11-01 16:54:35'),
-(11, 24, 'Mehedi Hasan Hriday', '01615237395', 52020.00, '2017-11-01 18:40:55'),
-(12, 24, 'Mehedi Hasan Hriday', '01615237395', 52020.00, '2017-11-01 18:42:29'),
-(13, 27, 'hriday', '01876545454', 5049.00, '2017-11-01 19:21:47'),
-(14, 25, 'Shahinul Alom', '01635874007', 2142.00, '2017-11-01 19:21:56'),
-(15, 35, 'shuvo', 'shuvo', 18000.00, '2017-11-19 18:07:39'),
-(16, 36, 'shuvo', 'shuvo', 18000.00, '2017-11-19 19:04:10'),
-(17, 37, 'shuvo', 'shuvo', 52170.00, '2017-11-19 19:24:26');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `save_comnt`
---
-
-CREATE TABLE `save_comnt` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `message` text DEFAULT NULL,
-  `pdt_id` int(11) DEFAULT NULL,
-  `pdt_name` varchar(50) DEFAULT NULL
+-- Dumping structure for table shuvo_e_shopper.save_comnt
+CREATE TABLE IF NOT EXISTS `save_comnt` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb3_unicode_ci,
+  `pdt_id` int DEFAULT NULL,
+  `pdt_name` varchar(50) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Dumping data for table `save_comnt`
---
+-- Dumping data for table shuvo_e_shopper.save_comnt: ~0 rows (approximately)
 
-INSERT INTO `save_comnt` (`id`, `name`, `email`, `message`, `pdt_id`, `pdt_name`) VALUES
-(1, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(2, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(3, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(4, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(5, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(6, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(7, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(8, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(9, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(10, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(11, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(12, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(13, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(14, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(15, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(16, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(17, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5'),
-(18, 'shuvo', 'mehedifeni89@gmail.com', 'thsi product is very nice', 7, 'Nokia5');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `shipping_info`
---
-
-CREATE TABLE `shipping_info` (
-  `shipping_id` int(11) NOT NULL,
-  `full_name` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `phone` int(50) DEFAULT NULL,
-  `address` text DEFAULT NULL,
-  `district` varchar(20) DEFAULT NULL
+-- Dumping structure for table shuvo_e_shopper.shipping_info
+CREATE TABLE IF NOT EXISTS `shipping_info` (
+  `shipping_id` int NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `phone` int DEFAULT NULL,
+  `address` text COLLATE utf8mb3_unicode_ci,
+  `district` varchar(20) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  KEY `shipping_id` (`shipping_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Dumping data for table `shipping_info`
---
+-- Dumping data for table shuvo_e_shopper.shipping_info: ~0 rows (approximately)
 
-INSERT INTO `shipping_info` (`shipping_id`, `full_name`, `email`, `phone`, `address`, `district`) VALUES
-(21, 'Shuvo', 'shuvo@gmail.com', 1917423680, 'Mirpur Dhaka Bangladesh', 'Feni'),
-(22, 'Mehedi Hasan Hriday', 'hridaybd5@gmail.com', 1615237395, 'Feni dagonbuiyn bangladesh', 'feni'),
-(23, 'Mehedi Hasan Shuvo', 'shuvo@gmail.com', 1917423680, 'Mirpur Dhaka Bangladesh', 'Dhaka'),
-(24, 'tamanna', 'tamanna@gmail.com', 1876545454, 'dagonbuyian', 'dhaka'),
-(25, 'sdfas', 'shuvo@gmail.com', 1917423680, 'Mirpur Dhaka Bangladesh', 'Feni'),
-(26, 'shuvo', 'shuvo@gmail.com', 1917423680, 'Mirpur Dhaka Bangladesh', 'Dhaka'),
-(27, 'Mehedi Hasan Shuvo', 'shuvo@gmail.com', 1917423680, 'trunk road feni', 'feni'),
-(28, 'anika', 'anika@gmail.com', 1738923828, 'feni ranirhat', 'feni'),
-(29, 'tasfia', 'tasfia@yahoo.com', 1917423680, 'Ranir Hat Feni', 'Feni'),
-(30, 'mehedi', 'hriday5@yahoo.com', 1738923828, 'feni ranirhat', 'feni');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `temp_cart`
---
-
-CREATE TABLE `temp_cart` (
-  `temp_cart_id` int(11) NOT NULL,
-  `session_id` varchar(255) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `product_name` varchar(100) DEFAULT NULL,
+-- Dumping structure for table shuvo_e_shopper.temp_cart
+CREATE TABLE IF NOT EXISTS `temp_cart` (
+  `temp_cart_id` int NOT NULL AUTO_INCREMENT,
+  `session_id` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  `product_name` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `product_price` float(11,2) DEFAULT NULL,
-  `product_picture` varchar(255) DEFAULT NULL,
-  `product_quantity` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  `product_picture` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `product_quantity` int DEFAULT NULL,
+  KEY `temp_cart_id` (`temp_cart_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
---
--- Indexes for dumped tables
---
+-- Dumping data for table shuvo_e_shopper.temp_cart: ~0 rows (approximately)
 
---
--- Indexes for table `add_product`
---
-ALTER TABLE `add_product`
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `admin_info`
---
-ALTER TABLE `admin_info`
-  ADD KEY `id` (`id`);
-
---
--- Indexes for table `category_info`
---
-ALTER TABLE `category_info`
-  ADD KEY `cata_id` (`cata_id`);
-
---
--- Indexes for table `customer_info`
---
-ALTER TABLE `customer_info`
-  ADD PRIMARY KEY (`customer_id`) USING BTREE,
-  ADD UNIQUE KEY `phone` (`phone`);
-
---
--- Indexes for table `manufacture_info`
---
-ALTER TABLE `manufacture_info`
-  ADD KEY `manu_id` (`manu_id`);
-
---
--- Indexes for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`order_details_id`),
-  ADD KEY `order_details_id` (`order_details_id`);
-
---
--- Indexes for table `order_info`
---
-ALTER TABLE `order_info`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `order_id` (`order_id`);
-
---
--- Indexes for table `payment_info`
---
-ALTER TABLE `payment_info`
-  ADD KEY `payment_id` (`payment_id`);
-
---
--- Indexes for table `sale_info`
---
-ALTER TABLE `sale_info`
-  ADD KEY `sale_id` (`sale_id`);
-
---
--- Indexes for table `save_comnt`
---
-ALTER TABLE `save_comnt`
-  ADD KEY `id` (`id`);
-
---
--- Indexes for table `shipping_info`
---
-ALTER TABLE `shipping_info`
-  ADD KEY `shipping_id` (`shipping_id`);
-
---
--- Indexes for table `temp_cart`
---
-ALTER TABLE `temp_cart`
-  ADD KEY `temp_cart_id` (`temp_cart_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `add_product`
---
-ALTER TABLE `add_product`
-  MODIFY `product_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `admin_info`
---
-ALTER TABLE `admin_info`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `category_info`
---
-ALTER TABLE `category_info`
-  MODIFY `cata_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `customer_info`
---
-ALTER TABLE `customer_info`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `manufacture_info`
---
-ALTER TABLE `manufacture_info`
-  MODIFY `manu_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `order_details`
---
-ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
-
---
--- AUTO_INCREMENT for table `order_info`
---
-ALTER TABLE `order_info`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `payment_info`
---
-ALTER TABLE `payment_info`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
---
--- AUTO_INCREMENT for table `sale_info`
---
-ALTER TABLE `sale_info`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `save_comnt`
---
-ALTER TABLE `save_comnt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `shipping_info`
---
-ALTER TABLE `shipping_info`
-  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `temp_cart`
---
-ALTER TABLE `temp_cart`
-  MODIFY `temp_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
